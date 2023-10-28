@@ -1,6 +1,4 @@
-# Test
-## Subtitulo
-### Sub Subtitulo
-Git Test
+# Isadora Costa
 
-Random **Stuff** true real _random_ stuff
+cv: https://isadora-costa.pages.dev  
+github: https://github.com/ithilds
