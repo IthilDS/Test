@@ -1,4 +1,4 @@
 # Isadora Costa
 
-cv: https://isacosta.pages.dev  
+cv: https://isadora-costa.pages.dev  
 github: https://github.com/ithilds
