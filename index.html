@@ -17,21 +17,18 @@
     <link rel="dns-prefetch" href="https://static.cloudflareinsights.com/">
     <style type="text/css">
       /* FONTS */
-
       @font-face {
         font-family: 'Lato';
         src: local('Lato Regular'), local('Lato-Regular'), url('/fonts/Lato-Regular.woff2') format('woff2');
         font-weight: normal;
         font-display: swap;
       }
-
       @font-face {
         font-family: 'Lato';
         src: local('Lato Bold'), local('Lato-Bold'), url('/fonts/Lato-Bold.woff2') format('woff2');
         font-weight: bold;
         font-display: swap;
       }
-
       @font-face {
         font-family: 'Lato';
         src: local('Lato Italic'), local('Lato-Italic'), url('/fonts/Lato-Italic.woff2') format('woff2');
@@ -39,9 +36,7 @@
         font-style: italic;
         font-display: swap;
       }
-
       /* DEFAULTS */
-
       :root {
         --background: #F5F5F5;
         --lighter-gray: #eee;
@@ -54,72 +49,61 @@
         font-family: 'Lato', sans-serif;
         color: var(--darker-gray);
       }
-
       *, ::before, ::after {
         box-sizing: border-box;
         margin: 0;
         padding: 0;
         border: 0;
       }
-
       a {
         text-decoration: none;
         color: var(--darker-gray);
       }
-
       p {
         font-size: 11pt;
       }
-
+      ul {
+        list-style: none;
+      }
       h1, h2, h2, h3, h4, h6 {
         font-family: 'Lato', sans-serif;
         font-weight: bold;
       }
-
       h1 {
         color: var(--darker-gray);
         font-size: 28pt;
+        line-height: 1;
       }
-
       h2 {
         color: var(--darker-gray);
         font-size: 12pt;
       }
-
       h1, h2 {
         text-transform: uppercase;
       }
-
       h3, h4 {
         font-weight: normal;
         color: var(--dark-gray);
         font-size: 12pt;
       }
-
       /* COMMON */
-
       .gray {
         color: var(--light-gray);
       }
-
       .middot > * + *::before {
         content: '·';
         padding-right: .5rem;
       }
-
       /* LAYOUT */
-
       html {
         height: 100%;
       }
-
       body {
         background: var(--background);
         display: flex;
         flex-direction: column;
         min-height: 100%;
       }
-
       .container {
         flex: 1;
         background: white;
@@ -128,32 +112,44 @@
         padding: 3rem;
         display: grid;
         grid-template-columns: 1fr;
-        grid-gap: 3rem;
+        grid-gap: 2rem;
       }
-
+      /* HEADER */
+      header {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .contacts {
+        display: flex;
+        flex-direction: column;
+        gap: .25rem;
+      }
+      .contacts li {
+        display: flex;
+        align-items: center;
+        gap: .5rem;
+      }
+      .contacts li a {
+        font-size: 11pt;
+      }
       /* ASIDE */
-
       aside > p + p {
         margin-top: 1rem;
       }
-
       aside > h2 + * {
         margin-top: 1.25rem;
       }
-
       aside > * + h2 {
         margin-top: 2rem;
       }
-
       aside ul {
         font-size: 11pt;
         list-style: none;
       }
-
       aside .list > * + * {
         margin-top: .5rem;
       }
-
       aside .grid {
         font-size: 8pt;
         text-transform: uppercase;
@@ -164,81 +160,61 @@
         grid-template-rows: 2fr;
         font-weight: bold;
       }
-
       aside .grid li {
         display: flex;
         flex-direction: column;
         align-items: center;
       }
-
       aside .grid img {
         width: 2.5rem;
         height: 2.5rem;
         margin-bottom: .5rem;
       }
-
       /* MAIN */
-
-      main .contacts {
-        display: flex;
-        flex-direction: column;
-        gap: .5rem;
-      }
-
-      main .contacts li {
-        display: flex;
-        align-items: center;
-        gap: .5rem;
-      }
-
-      main .contacts li a {
-        font-size: 11pt;
-      }
-
-      main > * + * {
+      main > * {
         padding-top: 1.5rem;
-        margin-top: 1.5rem;
         border-top: 3px solid var(--darker-gray);
       }
-
+      main > * + * {
+        margin-top: 1.5rem;
+      }
       main section > div + div {
         padding-top: 1.5rem;
         margin-top: 1.5rem;
         border-top: 1px solid var(--darker-gray);
       }
-
       main h2 {
         margin-bottom: 1.5rem;
       }
-
       main .date-range {
         font-size: 11pt;
         color: var(--light-gray);
         margin-top: .25rem;
       }
-
-      main ul, main p + p {
+      main .list, main p + p {
         margin-top: 1rem;
         font-size: 11pt;
       }
-
-      main ul {
+      main .list {
+        list-style: disc;
         margin-left: .875rem;
       }
-
       /* RESPONSIVENESS */
-
-      @media (min-width: 1024px) {
+      @media (min-width: 768px) {
         .container {
           grid-template-columns: 1fr 2fr;
+          grid-gap: 1.5rem 3rem;
+        }
+        header {
+          grid-column: span 2;
+          flex-direction: row;
+          justify-content: space-between;
         }
         .contacts li {
           justify-content: flex-end;
         }
       }
-
       /* PRINT */
-
       @media print {
         :root {
           font-size: 12pt;
@@ -257,17 +233,20 @@
       }
     </style>
   </head>
-
   <body>
     <div class="container">
-      <aside>
+      <header>
         <h1>Isadora Costa</h1>
-
+        <ul id="contactos" class="contacts">
+          <li data-ab="dGVsOiszNTE5NjcwMDc3ODl8KzM1MSA5NjcgMDA3IDc4OQ=="><span>📞</span></li>
+          <li data-ab="bWFpbHRvOmlzYWRvcmEuY29zdGFAZ21haWwuY29t"><span>✉️</span></li>
+        </ul>
+      </header>
+      <aside>
         <h2 id="sobre-mim">Sobre mim</h2>
         <p>Durante o meu percurso profissional, tive a oportunidade de trabalhar em várias áreas, incluindo apoio ao cliente, marketing, gestão de inventário, e supervisão. Estas experiências proporcionaram-me competências que estou pronta para aplicar num novo ambiente de trabalho.</p>
         <p>Encaro os desafios com determinação e responsabilidade, e tenho um gosto especial em ajudar o próximo.</p>
         <p>Procuro uma oportunidade de trabalho numa área administrativa, onde poderei dar uso às minhas competências adquiridas.</p>
-
         <h2 id="competencias-pessoais">Competências Pessoais</h2>
         <ul class="list">
           <li>Trabalho de equipa e capacidade de liderança</li>
@@ -278,7 +257,6 @@
           <li>Organização e Proatividade</li>
           <li>Criatividade e inovação</li>
         </ul>
-
         <h2 id="competencias-tecnicas">Competências Técnicas</h2>
         <ul class="list">
           <li>Domínio em ferramentas de design gráfico (Adobe Photoshop, Lightroom) e edição de vídeo (Premiere Pro)</li>
@@ -288,26 +266,22 @@
           <li>Domínio de gestores de conteúdo (CMS)</li>
           <li>Conhecimentos a nível de Hardware</li>
         </ul>
-
         <h2 id="linguas">Línguas</h2>
         <ul class="list">
           <li>Potuguês (nativo)</li>
           <li>Inglês (avançado C1)</li>
           <li>Espanhol (Independente B1)</li>
         </ul>
-
         <h2 id="detalhes">Detalhes Adicionais</h2>
         <ul class="list">
           <li>Carta de condução Categoria B</li>
         </ul>
-
         <h2 id="something">CIRCLES</h2>
         <ul class="grid">
           <li><img src="images/progress-100.svg" width="40" height="40" loading="lazy" alt="native">Portuguese</li>
           <li><img src="images/progress-75.svg" width="40" height="40" loading="lazy" alt="fluent">English</li>
           <li><img src="images/progress-25.svg" width="40" height="40" loading="lazy" alt="basic">Japanese</li>
         </ul>
-
         <h2 id="something">ICONS</h2>
         <ul class="grid">
           <li><img src="images/technology.svg" width="40" height="40" loading="lazy" alt="a rocket ship">Technology</li>
@@ -321,29 +295,22 @@
         </ul>
       </aside>
       <main>
-        <ul id="contactos" class="contacts">
-          <li data-ab="dGVsOiszNTE5NjcwMDc3ODl8KzM1MSA5NjcgMDA3IDc4OQ=="><span>📞</span></li>
-          <li data-ab="bWFpbHRvOmlzYWRvcmEuY29zdGFAZ21haWwuY29t"><span>✉️</span></li>
-        </ul>
-
         <section>
           <h2 id="experiencia-profissional">Experiência Profissional</h2>
-
           <div>
             <h3 id="ccdtcml">CCDTCML</h3>
             <h4>Empregada de Bar</h4>
             <div class="date-range">Abril 2019 — Actualmente</div>
-            <ul class="tasks">
+            <ul class="list">
               <li>Atendimento ao público</li>
               <li>Organização de eventos</li>
             </ul>
           </div>
-
           <div>
             <h3 id="modelo-e-continente">Modelo e Continente, SA</h3>
             <h4>Gestora de espaço comercial</h4>
             <div class="date-range">Abril 2004 — Abril 2019</div>
-            <ul class="tasks">
+            <ul class="list">
               <li>Receção de mercadoria, centralizada e diretos</li>
               <li>Conferência de faturas e envio de devoluções</li>
               <li>Resolução de litígios</li>
@@ -353,7 +320,6 @@
             </ul>
           </div>
         </section>
-
         <section>
           <div>
             <h2 id="formacao-academica">Formação Académica</h2>
@@ -378,13 +344,12 @@
             </p>
           </div>
         </section>
-
         <section>
           <h2 id="actividades-extra-curriculares">Actividades Extra Curriculares</h2>
           <div>
             <h3>Design Gráfico</h3>
             <div class="date-range">Janeiro 2020 — Actualmente</div>
-            <ul class="tasks">
+            <ul class="list">
               <li>Design de Cartazes publicitários para artistas locais e coletividades</li>
               <li>Decoração de espaços</li>
             </ul>
@@ -393,7 +358,7 @@
             <h3>Entrevistadora no Projeto PIAAC</h3>
             <h4>Universidade Católica Portuguesa</h4>
             <div class="date-range">Fevereiro 2023 — Agosto 2023</div>
-            <ul class="tasks">
+            <ul class="list">
               <li>Entrevistas à porta no âmbito do Programa Internacional para a Avaliação das Competências dos Adultos</li>
             </ul>
           </div>
@@ -406,7 +371,7 @@
             <h3>Entrevistadora Censos 2021</h3>
             <h4>Instituto Nacional de Estatística</h4>
             <div class="date-range">Abril 2021 — Junho 2021</div>
-            <ul class="tasks">
+            <ul class="list">
               <li>Reconhecimento da área atribuída, distribuição de cartas, e assistência a pessoas com dificuldades no preenchimento do inquérito.</li>
             </ul>
           </div>
