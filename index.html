@@ -18,20 +18,20 @@
     <style type="text/css">
       /* FONTS */
       @font-face {
-        font-family: 'Lato';
         src: local('Lato Regular'), local('Lato-Regular'), url('/fonts/Lato-Regular.woff2') format('woff2');
+        font-family: 'Lato';
         font-weight: normal;
         font-display: swap;
       }
       @font-face {
-        font-family: 'Lato';
         src: local('Lato Bold'), local('Lato-Bold'), url('/fonts/Lato-Bold.woff2') format('woff2');
+        font-family: 'Lato';
         font-weight: bold;
         font-display: swap;
       }
       @font-face {
-        font-family: 'Lato';
         src: local('Lato Italic'), local('Lato-Italic'), url('/fonts/Lato-Italic.woff2') format('woff2');
+        font-family: 'Lato';
         font-weight: normal;
         font-style: italic;
         font-display: swap;
@@ -70,26 +70,23 @@
         font-weight: bold;
       }
       h1 {
-        color: var(--darker-gray);
         font-size: 28pt;
         line-height: 1;
+        color: var(--darker-gray);
       }
       h2 {
-        color: var(--darker-gray);
         font-size: 12pt;
+        color: var(--darker-gray);
       }
       h1, h2 {
         text-transform: uppercase;
       }
       h3, h4 {
-        font-weight: normal;
         color: var(--dark-gray);
         font-size: 12pt;
+        font-weight: normal;
       }
       /* COMMON */
-      .gray {
-        color: var(--light-gray);
-      }
       .middot > * + *::before {
         content: '·';
         padding-right: .5rem;
@@ -99,20 +96,20 @@
         height: 100%;
       }
       body {
-        background: var(--background);
         display: flex;
         flex-direction: column;
         min-height: 100%;
+        background: var(--background);
       }
       .container {
         flex: 1;
-        background: white;
-        max-width: 1080px;
-        margin: 0 auto;
-        padding: 3rem;
         display: grid;
         grid-template-columns: 1fr;
         grid-gap: 2rem;
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 3rem;
+        background: white;
       }
       /* HEADER */
       header {
@@ -134,31 +131,30 @@
         font-size: 11pt;
       }
       /* ASIDE */
-      aside > p + p {
-        margin-top: 1rem;
-      }
       aside > h2 + * {
         margin-top: 1.25rem;
       }
       aside > * + h2 {
         margin-top: 2rem;
       }
+      aside > p + p {
+        margin-top: 1rem;
+      }
       aside ul {
         font-size: 11pt;
-        list-style: none;
       }
       aside .list > * + * {
         margin-top: .5rem;
       }
       aside .grid {
-        font-size: 8pt;
-        text-transform: uppercase;
-        text-align: center;
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         grid-gap: 12px;
         grid-template-rows: 2fr;
+        font-size: 8pt;
         font-weight: bold;
+        text-align: center;
+        text-transform: uppercase;
       }
       aside .grid li {
         display: flex;
@@ -179,26 +175,26 @@
         margin-top: 1.5rem;
       }
       main section > div + div {
-        padding-top: 1.5rem;
         margin-top: 1.5rem;
+        padding-top: 1.5rem;
         border-top: 1px solid var(--darker-gray);
       }
       main h2 {
         margin-bottom: 1.5rem;
       }
       main .date-range {
-        font-size: 11pt;
-        color: var(--light-gray);
         margin-top: .25rem;
+        font-size: 11pt;
         font-style: italic;
+        color: var(--light-gray);
       }
       main .list, main p + p {
         margin-top: 1rem;
         font-size: 11pt;
       }
       main .list {
-        list-style: disc;
         margin-left: .875rem;
+        list-style: disc;
       }
       /* RESPONSIVENESS */
       @media (min-width: 768px) {
@@ -224,8 +220,8 @@
           background: white;
         }
         .container {
-          max-width: none;
           grid-template-columns: 420px auto;
+          max-width: none;
         }
         .page-break-before {
           page-break-before: always;
