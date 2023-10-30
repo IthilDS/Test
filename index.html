@@ -66,7 +66,7 @@
         list-style: none;
       }
       h1 {
-        font-size: 28pt;
+        font-size: 42pt;
         line-height: 1;
       }
       h2 {
@@ -91,19 +91,23 @@
         background: var(--background);
       }
       .container {
+        position: relative;
         flex: 1;
         grid-template-columns: 1fr;
-        grid-gap: 2rem;
-        align-content: flex-start;
         max-width: 1080px;
         margin: 0 auto;
-        padding: 3rem;
         background: white;
       }
-      body, header, .contacts, .contacts li, .grid li {
+      .container > * {
+        padding: 3rem;
+      }
+      .sidebar {
+        gap: 2rem;
+      }
+      body, .sidebar, header, .contacts, .contacts li, .grid li {
         display: flex;
       }
-      body, header, .contacts, .grid li {
+      body, .sidebar, header, .contacts, .grid li {
         flex-direction: column;
       }
       .container, .grid {
@@ -114,7 +118,7 @@
       }
       /* HEADER */
       header {
-        gap: 1rem;
+        gap: 1.5rem;
       }
       .contacts {
         gap: .25rem;
@@ -188,15 +192,19 @@
       @media (min-width: 768px) {
         .container {
           grid-template-columns: 1fr 2fr;
-          grid-gap: 1.5rem 3rem;
         }
-        header {
-          grid-column: span 2;
-          flex-direction: row;
-          justify-content: space-between;
+        .sidebar {
+          background: pink;
+        }
+        .contacts {
+          position: absolute;
+          inset: 3rem 3rem auto auto;
         }
         .contacts li {
           justify-content: flex-end;
+        }
+        main {
+          margin-top: 4.125rem;
         }
       }
       /* PRINT */
@@ -220,55 +228,57 @@
   </head>
   <body>
     <div class="container">
-      <header>
-        <h1>Isadora Costa</h1>
-        <ul id="contactos" class="contacts">
-          <li data-as="dGVsOiszNTE5NjcwMDc3ODl8KzM1MSA5NjcgMDA3IDc4OQ=="><span>📞</span></li>
-          <li data-as="bWFpbHRvOmlzYWRvcmEuY29zdGFAZ21haWwuY29t"><span>✉️</span></li>
-        </ul>
-      </header>
-      <aside>
-        <h2 id="sobre-mim">Sobre mim</h2>
-        <p>Durante o meu percurso profissional, tive a oportunidade de trabalhar em várias áreas, incluindo apoio ao cliente, marketing, gestão de inventário, e supervisão. Estas experiências proporcionaram-me competências que estou pronta para aplicar num novo ambiente de trabalho.</p>
-        <p>Encaro os desafios com determinação e responsabilidade, e tenho um gosto especial em ajudar o próximo.</p>
-        <p>Procuro uma oportunidade de trabalho numa área administrativa, onde poderei dar uso às minhas competências adquiridas.</p>
-        <h2 id="competencias-pessoais">Competências Pessoais</h2>
-        <ul class="list">
-          <li>Trabalho de equipa e capacidade de liderança</li>
-          <li>Pensamento crítico e analítico</li>
-          <li>Capacidade de resolução de problemas complexos</li>
-          <li>Resiliência, atitude positiva e flexibilidade</li>
-          <li>Capacidade de comunicação</li>
-          <li>Organização e Proatividade</li>
-          <li>Criatividade e inovação</li>
-        </ul>
-        <h2 id="competencias-tecnicas">Competências Técnicas</h2>
-        <ul class="list">
-          <li>Domínio em ferramentas de design gráfico (Adobe Photoshop, Lightroom) e edição de vídeo (Premiere Pro)</li>
-          <li>Domínio em Word, Excel e Powerpoint</li>
-          <li>Consulta e manipulação de bases de dados</li>
-          <li>Domínio de utilização da Internet (pesquisas, configurações, etc.)</li>
-          <li>Domínio de gestores de conteúdo (CMS)</li>
-          <li>Conhecimentos a nível de Hardware</li>
-        </ul>
-        <h2 id="linguas">Línguas</h2>
-        <ul class="grid">
-          <li><img src="images/progress-100.svg" width="40" height="40" loading="lazy" alt="native">Portuguese</li>
-          <li><img src="images/progress-75.svg" width="40" height="40" loading="lazy" alt="fluent">English</li>
-          <li><img src="images/progress-25.svg" width="40" height="40" loading="lazy" alt="basic">Espanhol</li>
-        </ul>
-        <h2 id="detalhes">Detalhes Adicionais</h2>
-        <ul class="list">
-          <li>Carta de condução Categoria B</li>
-        </ul>        
-        <h2 id="something">Interesses & Hobbies </h2>
-        <ul class="grid">
-          <li><img src="images/technology.svg" width="40" height="40" loading="lazy" alt="a rocket ship">Tecnologia</li>
-          <li><img src="images/photography.svg" width="40" height="40" loading="lazy" alt="an SLR camera">Fotografia</li>
-          <li><img src="images/travel.svg" width="40" height="40" loading="lazy" alt="an airplane">Viagens</li>
-          <li><img src="images/nature.svg" width="40" height="40" loading="lazy" alt="a mountain and a pine tree">Natureza</li>
-        </ul>
-      </aside>
+      <div class="sidebar">
+        <header>
+          <h1>Isadora Costa</h1>
+          <ul id="contactos" class="contacts">
+            <li data-as="dGVsOiszNTE5NjcwMDc3ODl8KzM1MSA5NjcgMDA3IDc4OQ=="><span>📞</span></li>
+            <li data-as="bWFpbHRvOmlzYWRvcmEuY29zdGFAZ21haWwuY29t"><span>✉️</span></li>
+          </ul>
+        </header>
+        <aside>
+          <h2 id="sobre-mim">Sobre mim</h2>
+          <p>Durante o meu percurso profissional, tive a oportunidade de trabalhar em várias áreas, incluindo apoio ao cliente, marketing, gestão de inventário, e supervisão. Estas experiências proporcionaram-me competências que estou pronta para aplicar num novo ambiente de trabalho.</p>
+          <p>Encaro os desafios com determinação e responsabilidade, e tenho um gosto especial em ajudar o próximo.</p>
+          <p>Procuro uma oportunidade de trabalho numa área administrativa, onde poderei dar uso às minhas competências adquiridas.</p>
+          <h2 id="competencias-pessoais">Competências Pessoais</h2>
+          <ul class="list">
+            <li>Trabalho de equipa e capacidade de liderança</li>
+            <li>Pensamento crítico e analítico</li>
+            <li>Capacidade de resolução de problemas complexos</li>
+            <li>Resiliência, atitude positiva e flexibilidade</li>
+            <li>Capacidade de comunicação</li>
+            <li>Organização e Proatividade</li>
+            <li>Criatividade e inovação</li>
+          </ul>
+          <h2 id="competencias-tecnicas">Competências Técnicas</h2>
+          <ul class="list">
+            <li>Domínio em ferramentas de design gráfico (Adobe Photoshop, Lightroom) e edição de vídeo (Premiere Pro)</li>
+            <li>Domínio em Word, Excel e Powerpoint</li>
+            <li>Consulta e manipulação de bases de dados</li>
+            <li>Domínio de utilização da Internet (pesquisas, configurações, etc.)</li>
+            <li>Domínio de gestores de conteúdo (CMS)</li>
+            <li>Conhecimentos a nível de Hardware</li>
+          </ul>
+          <h2 id="linguas">Línguas</h2>
+          <ul class="grid">
+            <li><img src="images/progress-100.svg" width="40" height="40" loading="lazy" alt="native">Portuguese</li>
+            <li><img src="images/progress-75.svg" width="40" height="40" loading="lazy" alt="fluent">English</li>
+            <li><img src="images/progress-25.svg" width="40" height="40" loading="lazy" alt="basic">Espanhol</li>
+          </ul>
+          <h2 id="detalhes">Detalhes Adicionais</h2>
+          <ul class="list">
+            <li>Carta de condução Categoria B</li>
+          </ul>
+          <h2 id="something">Interesses & Hobbies </h2>
+          <ul class="grid">
+            <li><img src="images/technology.svg" width="40" height="40" loading="lazy" alt="a rocket ship">Tecnologia</li>
+            <li><img src="images/photography.svg" width="40" height="40" loading="lazy" alt="an SLR camera">Fotografia</li>
+            <li><img src="images/travel.svg" width="40" height="40" loading="lazy" alt="an airplane">Viagens</li>
+            <li><img src="images/nature.svg" width="40" height="40" loading="lazy" alt="a mountain and a pine tree">Natureza</li>
+          </ul>
+        </aside>
+      </div>
       <main>
         <section>
           <h2 id="experiencia-profissional">Experiência Profissional</h2>
